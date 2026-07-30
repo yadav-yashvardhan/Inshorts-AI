@@ -29,7 +29,7 @@ Reading geopolitical or financial news can be tough due to heavy jargon. I wante
 ## 🛠️ Tech Stack
 
 **Frontend:**
-- **Next.js 14** (App Router, Server Actions)
+- **Node.js** (App Router, Server Actions)
 - **Tailwind CSS** (Styling & Responsive Design)
 - **Lucide React** (Icons)
 
