@@ -119,7 +119,7 @@ const router = express.Router();
 function getClient() {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.error("❌ ERROR: GEMINI_API_KEY is missing in .env file");
+    console.error("ERROR: GEMINI_API_KEY is missing in .env file");
     return null;
   }
   return new GoogleGenerativeAI(apiKey);
@@ -195,7 +195,7 @@ router.post("/ask", async (req, res) => {
         }
         return res.json({ mode: "bias", ...parsed });
       } catch (err) {
-        console.error("❌ BIAS ERROR:", err.message);
+        console.error("BIAS ERROR:", err.message);
         return res.json({ mode: "bias", score: 0, label: "Center", rationale: "Server Error" });
       }
     }
@@ -222,12 +222,12 @@ router.post("/ask", async (req, res) => {
       return res.json({ mode: normalizedMode, answer });
 
     } catch (aiError) {
-      console.error("❌ GEMINI ERROR:", aiError.message);
+      console.error("GEMINI ERROR:", aiError.message);
       return res.json({ mode: normalizedMode, answer: "Analysis unavailable (Server Error)." });
     }
 
   } catch (err) {
-    console.error("❌ SERVER ERROR:", err);
+    console.error("SERVER ERROR:", err);
     return res.status(500).json({ error: "Internal server error" });
   }
 });
